@@ -1,0 +1,18 @@
+# Example caller workflow for kubeflow/testing#1094. Not for merge.
+name: Contributor Report Example
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  contributor-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pratik-naik003/testing/.github/actions/contributor-report@fcf6aae4b4edf10177ae68f71d7eddfd8f46ff38
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
